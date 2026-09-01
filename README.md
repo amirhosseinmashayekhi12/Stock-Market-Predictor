@@ -8,8 +8,8 @@ After training, the model is tested on data it has not seen before. The program 
 
 1. Historical stock data is collected using yFinance.
 2. The data is cleaned and prepared using Pandas and NumPy.
-3. Technical indicators and other features are calculated.
-4. The data is split into training and testing sets.
+3. Indicators and other features are calculated.
+4. The data is split into training and testing.
 5. A machine learning model is trained using the historical data.
 6. The model is tested to see how well it performs.
 7. The latest data is given to the model to predict the next day's direction.
