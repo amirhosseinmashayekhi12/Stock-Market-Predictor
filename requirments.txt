@@ -2,5 +2,5 @@ numpy
 pandas
 yfinance
 scikit-learn
-ttkbootstrap
+customtkinter
 xgboost
