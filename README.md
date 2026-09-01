@@ -24,6 +24,7 @@ After training, the model is tested on data it has not seen before. The program 
 - Scikit-learn
 - XGBoost
 - Tkinter
+- Custom tkinter
 - ttkbootstrap
   
 # Goal
