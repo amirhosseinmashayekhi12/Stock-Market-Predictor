@@ -241,28 +241,95 @@ def makestuff():
     label8 = CTkLabel(main, text='')
     label9 = CTkLabel(main, text='')
 
+#--------------------------------------------------------------------------
+
 
 def modelss():
     for widget in main.winfo_children():
         widget.destroy()
 
-    labels = [
-        "Random Forest: Creates multiple decision trees that each learn separately and make a final decision.",
-        "Logistic Regression: Uses mathematical relationships to classify whether a stock will go up or down.",
-        "Neural Networks: Uses layers of connected neurons to learn complex patterns in the data.",
-        "Gradient Boosting: Builds models one after another, with each one improving on the previous model.",
-        "Hist Gradient Boosting: A faster version of gradient boosting designed for larger datasets.",
-        "XGBoost: An optimized gradient boosting algorithm that is powerful and efficient."
+    title = CTkLabel(
+        main,
+        text="Machine Learning Models",
+        font=("Times New Roman", 32, "bold")
+    )
+    title.pack(pady=(20, 10))
+
+    subtitle = CTkLabel(
+        main,
+        text="Learn how each model makes predictions",
+        font=("Times New Roman", 16)
+    )
+    subtitle.pack(pady=(0, 25))
+
+    models = [
+        (
+            "Random Forest",
+            "Creates multiple decision trees and combines their results to make a final prediction."
+        ),
+        (
+            "Logistic Regression",
+            "Uses mathematical relationships between features to predict whether a stock will go up or down."
+        ),
+        (
+            "Neural Networks",
+            "Uses layers of connected neurons to learn complex patterns in the stock market data."
+        ),
+        (
+            "Gradient Boosting",
+            "Builds models one after another, with each new model improving the mistakes of the previous one."
+        ),
+        (
+            "Hist Gradient Boosting",
+            "A faster version of gradient boosting that is designed to work efficiently with larger datasets."
+        ),
+        (
+            "XGBoost",
+            "An optimized gradient boosting algorithm designed for speed, performance, and accuracy."
+        )
     ]
 
-    for text in labels:
-        label = CTkLabel(
+    for name, description in models:
+
+        card = CTkFrame(
             main,
-            text=text,
-            font=("Times New Roman", 31, "bold"),
-            wraplength=700
+            corner_radius=12
         )
-        label.pack(pady=(10, 15))
+        card.pack(
+            fill="x",
+            padx=30,
+            pady=7
+        )
+
+        model_name = CTkLabel(
+            card,
+            text=name,
+            font=("Times New Roman", 21, "bold")
+        )
+        model_name.pack(
+            anchor="w",
+            padx=20,
+            pady=(12, 2)
+        )
+
+        model_description = CTkLabel(
+            card,
+            text=description,
+            font=("Times New Roman", 15),
+            wraplength=700,
+            justify="left"
+        )
+        model_description.pack(
+            anchor="w",
+            padx=20,
+            pady=(0, 12)
+        )
+
+
+
+
+
+#--------------------------------------------------------
 main = CTkFrame(
     Wind,
     fg_color="transparent"
@@ -276,7 +343,7 @@ main.pack(
     pady=25
 )
 
-# #---------------------------------------------------------
+# #---------------------------------------------------------2 main frmes
 sidebar = CTkFrame(
     Wind,
     width=210,
@@ -288,17 +355,19 @@ sidebar.pack(
     fill="y"
 )
 labela = CTkLabel(sidebar, text='AI Market tool',font=("Times New Roman", 15, "bold"))
-labela.pack(padx = (20,20), pady = 20)
+labela.pack(padx = (20,20), pady = 15)
 
 buttona = CTkButton(sidebar, text='Prediction', command=makestuff)
-buttona.pack(padx = (20,20), pady = 20)
+buttona.pack(padx = (20,20), pady = 10)
 
 buttonb = CTkButton(sidebar, text='Models', command=modelss)
-buttonb.pack(padx = (20,20), pady = 20)
+buttonb.pack(padx = (20,20), pady = 10)
 
 buttonquit = CTkButton(sidebar, text='Quit', command=Wind.quit)
-buttonquit.pack(padx = (20,20), pady = 20)
-
+buttonquit.pack(padx = (20,20), pady = 10)
+#----------------------------------------------------------------------
 makestuff()
+#starts with the prediction tab open because its the main one
 Wind.mainloop()
+#runs the whole gui
 
