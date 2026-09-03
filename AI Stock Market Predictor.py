@@ -20,6 +20,7 @@ Wind = CTk()
 Wind.geometry("1000x700")
 Wind.title("Machine Learning Market Predictor")
 
+# this function happens when we click the predictor button on the sidebar
 def makestuff():
     for widget in main.winfo_children():
         widget.destroy()
@@ -81,6 +82,7 @@ def makestuff():
         x = data[features]
         y = data["Target"]
 
+        #splitting hhe data into 20 % testing and 80 % training
         x_train, x_test, y_train, y_test = train_test_split(
             x,
             y,
@@ -173,7 +175,6 @@ def makestuff():
         label8.configure(text="Latest Market Data",font=("Times New Roman", 18, "bold"))
         label9.configure(text=newestmarketdata,font=("Times New Roman", 18))
     #starting page
-    #---------------------------------------------------------
 
     ticker_label = CTkLabel(main,text="ENTER STOCK TICKER",font=("Times New Roman", 19, "bold"))
     ticker_label.pack(pady=(10, 8))
